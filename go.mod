@@ -1,3 +1,3 @@
-module github.com/edufschmidt/go-acl
+module github.com/thiagozs/go-acl
 
 go 1.15
