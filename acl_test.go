@@ -57,11 +57,11 @@ type mockToken struct {
 	policies   []string
 }
 
-func (t *mockToken) Policies() []string {
+func (t *mockToken) PermPolicies() []string {
 	return t.policies
 }
 
-func (t *mockToken) IsPrivileged() bool {
+func (t *mockToken) PermIsPrivileged() bool {
 	return t.privileged
 }
 
@@ -70,11 +70,11 @@ type mockPolicy struct {
 	rules []*mockRule
 }
 
-func (p *mockPolicy) Name() string {
+func (p *mockPolicy) PermName() string {
 	return p.name
 }
 
-func (p *mockPolicy) Rules() []Rule {
+func (p *mockPolicy) PermRules() []Rule {
 	rules := []Rule{}
 	for _, r := range p.rules {
 		rules = append(rules, r)

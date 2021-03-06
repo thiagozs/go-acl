@@ -75,13 +75,13 @@ func (r *Resolver) ResolveSecret(ctx context.Context, secret string) (*ACL, erro
 	}
 	token = tkn
 
-	if token.IsPrivileged() {
+	if token.PermIsPrivileged() {
 		return &ACL{privileged: true}, nil
 	}
 
 	// Retrieve policy definitions from the repository.
 	policies := []Policy{}
-	for _, p := range token.Policies() {
+	for _, p := range token.PermPolicies() {
 		policy, err := r.resolvePolicy(ctx, p)
 		if err != nil {
 			return nil, fmt.Errorf("%v : %v", ErrResolvingPolicy, err)
@@ -90,7 +90,7 @@ func (r *Resolver) ResolveSecret(ctx context.Context, secret string) (*ACL, erro
 	}
 
 	sort.Slice(policies, func(i, j int) bool {
-		return policies[i].Name() < policies[j].Name()
+		return policies[i].PermName() < policies[j].PermName()
 	})
 
 	// Initialize ACL struct
@@ -105,7 +105,7 @@ func (r *Resolver) ResolveSecret(ctx context.Context, secret string) (*ACL, erro
 
 		for _, res := range r.model.resources {
 
-			rules := policy.Rules()
+			rules := policy.PermRules()
 
 			for _, rule := range rules {
 

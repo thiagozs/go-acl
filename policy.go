@@ -3,8 +3,8 @@ package acl
 // Policy represents a named set of rules for allowing
 // operations on specific resources.
 type Policy interface {
-	Name() string
-	Rules() []Rule
+	PermName() string
+	PermRules() []Rule
 }
 
 // Rule is used to allow operations on specific resources. In
