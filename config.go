@@ -1,7 +1,7 @@
 package acl
 
 import (
-	"github.com/edufschmidt/go-acl/pkg/log"
+	"github.com/thiagozs/go-acl/pkg/log"
 )
 
 // ResolverConfig contains configurations for an ACL Resolver.

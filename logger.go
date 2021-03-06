@@ -3,7 +3,7 @@ package acl
 import (
 	"fmt"
 
-	"github.com/edufschmidt/go-acl/pkg/log"
+	"github.com/thiagozs/go-acl/pkg/log"
 )
 
 const (

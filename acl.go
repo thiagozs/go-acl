@@ -6,7 +6,7 @@ import (
 	"path"
 	"strings"
 
-	radix "github.com/edufschmidt/go-acl/pkg/radix"
+	radix "github.com/thiagozs/go-acl/pkg/radix"
 )
 
 const (
