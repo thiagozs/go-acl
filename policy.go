@@ -13,11 +13,11 @@ type Policy interface {
 // targeting specific instances of the resource.
 type Rule interface {
 	// Resource targeted by this rule.
-	Resource() string
+	GetResource() string
 	// Path used to target specific instances
 	// of the target resource, if applicable.
-	Path() string
+	GetPath() string
 	// Capabilities contains the actions allowed on
 	// instances of a resource matching this rule.
-	Capabilities() []string
+	GetCapabilities() []string
 }

@@ -88,15 +88,15 @@ type mockRule struct {
 	capabilities []string
 }
 
-func (r *mockRule) Resource() string {
+func (r *mockRule) GetResource() string {
 	return r.resource
 }
 
-func (r *mockRule) Path() string {
+func (r *mockRule) GetPath() string {
 	return r.path
 }
 
-func (r *mockRule) Capabilities() []string {
+func (r *mockRule) GetCapabilities() []string {
 	return r.capabilities
 }
 

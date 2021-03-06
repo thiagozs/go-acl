@@ -111,13 +111,13 @@ func (r *Resolver) ResolveSecret(ctx context.Context, secret string) (*ACL, erro
 
 				var capabilities capMap
 
-				if rule.Resource() == res.name {
+				if rule.GetResource() == res.name {
 
 					// Initialize capability map for this pattern if it has not yet been
 					// initialized by a previously processed rule/policy.
-					if leaf, found := acl.capabilities[res.name].Get(rule.Path()); !found {
+					if leaf, found := acl.capabilities[res.name].Get(rule.GetPath()); !found {
 						capabilities = make(capMap)
-						acl.capabilities[res.name].Set(rule.Path(), capabilities)
+						acl.capabilities[res.name].Set(rule.GetPath(), capabilities)
 					} else {
 						capabilities = leaf.(capMap)
 					}
@@ -131,7 +131,7 @@ func (r *Resolver) ResolveSecret(ctx context.Context, secret string) (*ACL, erro
 
 					// Expand aliases before processing capabilities.
 					expanded := []string{}
-					for _, cap := range rule.Capabilities() {
+					for _, cap := range rule.GetCapabilities() {
 						if res.hasAlias(cap) {
 							expanded = append(expanded, res.aliases[cap].expand()...)
 						} else {
